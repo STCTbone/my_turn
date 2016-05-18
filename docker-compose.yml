@@ -1,0 +1,15 @@
+db:
+  image: postgres:9.4.1
+  environment:
+    POSTGRES_USER: 'foo'
+    POSTGRES_PASSWORD: 'bar'
+    POSTGRES_DB: 'my_turn'
+web:
+  build: .
+  command: mix phoenix.server
+  ports:
+    - "4000:4000"
+  volumes:
+    - .:/myturn
+  links:
+    - db
