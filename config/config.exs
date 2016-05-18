@@ -13,17 +13,33 @@ config :my_turn, MyTurn.Endpoint,
   render_errors: [accepts: ~w(html json)],
   pubsub: [name: MyTurn.PubSub,
            adapter: Phoenix.PubSub.PG2]
+config :guardian, Guardian,
+  issuer: "MyTurn",
+  ttl: { 30, :days},
+  secret_key: "ESOHGOGOHVEOoehgoaihrg",
+  serializer: MyApp.GuardianSerializer
+
+config :ueberauth, Ueberauth,
+  providers: [
+    identity: {Ueberauth.Strategy.Identity, [
+      callback_methods: ["POST"]
+      ]},
+    github: {Ueberauth.Strategy.Github, []}
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
-
 # Configure phoenix generators
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+  
+config :phoenix, :template_engines,
+  slim: PhoenixSlime.Engine,
+  slime: PhoenixSlime.Engine
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{Mix.env}.exs"

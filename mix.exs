@@ -10,7 +10,8 @@ defmodule MyTurn.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases,
-     deps: deps]
+     deps: deps,
+     preferred_cli_env: [espec: :test]]
   end
 
   # Configuration for the OTP application.
@@ -19,7 +20,8 @@ defmodule MyTurn.Mixfile do
   def application do
     [mod: {MyTurn, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_github,
+                    :ueberauth_identity]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +38,13 @@ defmodule MyTurn.Mixfile do
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:espec, "~> 0.8.20", only: :test},
+     {:guardian, "~> 0.10.0"},
+     {:phoenix_slime, "~> 0.5.1"},
+     {:ueberauth, "~> 0.2"},
+     {:ueberauth_github, "~> 0.2"},
+     {:ueberauth_identity, "~> 0.2"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
