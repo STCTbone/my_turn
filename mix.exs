@@ -20,8 +20,7 @@ defmodule MyTurn.Mixfile do
   def application do
     [mod: {MyTurn, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ueberauth, :ueberauth_github,
-                    :ueberauth_identity]]
+                    :phoenix_ecto, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,14 +38,11 @@ defmodule MyTurn.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
+     {:comeonin, "~> 2.0"},
      {:espec, "~> 0.8.20", only: :test},
      {:exrm, "~> 1.0.4"},
      {:exrm_docker, "~> 0.1.0"},
-     {:guardian, "~> 0.10.0"},
-     {:phoenix_slime, "~> 0.5.1"},
-     {:ueberauth, "~> 0.2"},
-     {:ueberauth_github, "~> 0.2"},
-     {:ueberauth_identity, "~> 0.2"}]
+     {:phoenix_slime, "~> 0.5.1"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
