@@ -40,6 +40,8 @@ defmodule MyTurn.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:espec, "~> 0.8.20", only: :test},
+     {:exrm, "~> 1.0.4"},
+     {:exrm_docker, "~> 0.1.0"},
      {:guardian, "~> 0.10.0"},
      {:phoenix_slime, "~> 0.5.1"},
      {:ueberauth, "~> 0.2"},
