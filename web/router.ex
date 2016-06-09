@@ -19,6 +19,7 @@ defmodule MyTurn.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/meetings", MeetingController
   end
 
   # Other scopes may use custom stacks.

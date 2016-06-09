@@ -1,0 +1,5 @@
+h2 New meeting
+
+= render "form.html", changeset: @changeset, action: meeting_path(@conn, :create)
+
+= link "Back", to: meeting_path(@conn, :index)

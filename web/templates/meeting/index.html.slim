@@ -1,0 +1,21 @@
+h2 Listing meetings
+
+table.table
+  thead
+    tr
+      th Title
+      th Question ids
+      th
+  tbody
+    = for meeting <- @meetings do
+      tr
+        td= meeting.title
+        td= meeting.question_ids
+        td class="text-right"
+          = link "Show", to: meeting_path(@conn, :show, meeting), class: "btn btn-default btn-xs"
+          | &nbsp;
+          = link "Edit", to: meeting_path(@conn, :edit, meeting), class: "btn btn-default btn-xs"
+          | &nbsp;
+          = link "Delete", to: meeting_path(@conn, :delete, meeting), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs"
+
+= link "New meeting", to: meeting_path(@conn, :new)

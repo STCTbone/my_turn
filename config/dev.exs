@@ -35,8 +35,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :my_turn, MyTurn.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "foo",
-  password: "bar",
+  username: "postgres",
+  password: "postgres",
   database: "my_turn",
-  hostname: "db",
   pool_size: 10
